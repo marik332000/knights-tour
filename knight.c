@@ -52,9 +52,8 @@ int solve_board (int x, int y, int n)
     {
       int xx = x + moves[i][0];
       int yy = y + moves[i][1];
-      if (valid(xx, yy))
-	if (solve_board(xx, yy, n + 1))
-	  return 1;
+      if (valid (xx, yy) && solve_board (xx, yy, n + 1))
+	return 1;
     }
 
   board[y][x] = 0;
