@@ -10,6 +10,7 @@ int moves[8][2] = {
 };
 
 void print_board ();
+int valid (int x, int y);
 int solve_board (int x, int y, int n);
 
 int main ()
@@ -32,6 +33,14 @@ void print_board ()
     }
 }
 
+int valid (int x, int y)
+{
+  return
+    x >= 0 && x < XSIZE &&
+    y >= 0 && y < YSIZE &&
+    board[y][x] == 0;
+}
+
 int solve_board (int x, int y, int n)
 {
   board[y][x] = n;
@@ -43,9 +52,7 @@ int solve_board (int x, int y, int n)
     {
       int xx = x + moves[i][0];
       int yy = y + moves[i][1];
-      if (xx >= 0 && xx < XSIZE &&
-	  yy >= 0 && yy < YSIZE &&
-	  board[yy][xx] == 0)
+      if (valid(xx, yy))
 	if (solve_board(xx, yy, n + 1))
 	  return 1;
     }
