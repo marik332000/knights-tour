@@ -30,7 +30,7 @@ void print_board ()
   for (y = 0; y < YSIZE; y++)
     {
       for (x = 0; x < XSIZE; x++)
-	printf ("% 3d ", board[y][x]);
+	printf ("% 6d ", board[y][x]);
       printf ("\n");
     }
 }
